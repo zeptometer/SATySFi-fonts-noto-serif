@@ -50,7 +50,7 @@ document (|
   show-title = true;
   show-toc = false;
 |) '<
-  +p{Note: Currently, SATySFi doesn't work with fonts-noto-serif:NotoSerif-ExtraCondensed\* and fonts-noto-serif:NotoSerif-ExtraLight\* fonts. You should avoid using those fonts at the moment.}
+  +p{Note: Currently, SATySFi doesn't work with fonts-noto-serif:NotoSerif-ExtraCondensed\* fonts. You should avoid using those fonts at the moment.}
   +show-latin-font(`fonts-noto-serif:NotoSerif-Black`);
   +show-latin-font(`fonts-noto-serif:NotoSerif-BlackItalic`);
   +show-latin-font(`fonts-noto-serif:NotoSerif-Bold`);
@@ -93,8 +93,8 @@ document (|
   % +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedSemiBoldItalic`);
   % +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedThin`);
   % +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedThinItalic`);
-  % +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraLight`);
-  % +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraLightItalic`);
   +show-latin-font(`fonts-noto-serif:NotoSerif-Italic`);
   +show-latin-font(`fonts-noto-serif:NotoSerif-Light`);
   +show-latin-font(`fonts-noto-serif:NotoSerif-LightItalic`);

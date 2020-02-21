@@ -18,7 +18,8 @@ if you get error `bash: satyrographos: command not found`, please read the [inst
 
 ## Installed Fonts
 This package install the following fonts.
-**Note**: Currently, SATySFi doesn't work with fonts-noto-serif:NotoSerif-ExtraCondensed\* and fonts-noto-serif:NotoSerif-ExtraLight\* fonts. You should avoid using those fonts at the moment.
+
+**Note**: Currently, SATySFi doesn't work with fonts-noto-serif:NotoSerif-ExtraCondensed\* fonts. You should avoid using those fonts at the moment.
 
 | SATySFi Font Name | Font Filename | Font Type |
 |-------------------|---------------|-----------|
