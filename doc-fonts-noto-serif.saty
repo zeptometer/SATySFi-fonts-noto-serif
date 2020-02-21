@@ -1,0 +1,128 @@
+@require: stdjabook
+@require: code
+@require: itemize
+@require: math
+@require: base/block
+@require: base/inline
+
+let lorem = {Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+let lemon = {何故だかその頃私は見すぼらしくて美しいものに強くひきつけられたのを覚えている。風景にしても壊れかかった街だとか、その街にしてもよそよそしい表通りよりもどこか親しみのある、汚い洗濯物が干してあったりがらくたが転がしてあったりむさくるしい部屋が覗いていたりする裏通りが好きであった。}
+let mathexample = {${\abs{\mathrm{Orb}_G\(x\)} \cdot \abs{\mathrm{Stab}_G\(x\)} = \abs{G}}}
+
+let make-heading fontname ctx =
+  ctx |> set-paragraph-margin 30pt 0pt
+      |> set-font-size 14pt
+      |> Block.of-inline ?:(true) true false (Inline.of-string fontname)
+
+let-block ctx +show-math-font name =
+  let heading = ctx |> make-heading name
+  in
+  let example = ctx
+    |> set-math-font name
+    |> Block.of-inline ?:(true) true true (Inline.read mathexample)
+  in
+  Block.concat [heading; example]
+
+let-block ctx +show-cjk-font name =
+  let heading = ctx |> make-heading name
+  in
+  let example = ctx
+    |> set-font HanIdeographic (name, 1., 0.)
+    |> set-font Kana (name, 1., 0.)
+    |> Block.of-inline ?:(true) true true (Inline.read lemon)
+  in
+  Block.concat [heading; example]
+
+let-block ctx +show-latin-font name =
+  let heading = ctx |> make-heading name
+  in
+  let example = ctx
+    |> set-font Latin (name, 1., 0.)
+    |> set-font OtherScript (name, 1., 0.)
+    |> Block.of-inline ?:(true) true true (Inline.read lorem)
+  in
+  Block.concat [heading; example]
+
+in
+document (|
+  title = {\SATySFi;-fonts-computer-modern};
+  author = {Yuito Murase};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Black`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-BlackItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Bold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-BoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Condensed`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedBlack`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedBlackItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedExtraBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedExtraBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedExtraLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedExtraLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedMedium`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedMediumItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedSemiBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedSemiBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedThin`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-CondensedThinItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensed`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedBlack`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedBlackItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedExtraBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedExtraBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedExtraLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedExtraLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedMedium`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedMediumItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedSemiBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedSemiBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedThin`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraCondensedThinItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ExtraLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Italic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Light`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-LightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Medium`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-MediumItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Regular`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensed`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedBlack`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedBlackItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedExtraBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedExtraBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedExtraLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedExtraLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedLight`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedLightItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedMedium`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedMediumItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedSemiBold`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedSemiBoldItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedThin`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-SemiCondensedThinItalic`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-Thin`);
+  +show-latin-font(`fonts-noto-serif:NotoSerif-ThinItalic`);
+  
+  
+  
+>
