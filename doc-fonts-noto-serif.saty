@@ -45,7 +45,7 @@ let-block ctx +show-latin-font name =
 
 in
 document (|
-  title = {\SATySFi;-fonts-computer-modern};
+  title = {\SATySFi;-fonts-noto-serif};
   author = {Yuito Murase};
   show-title = true;
   show-toc = false;

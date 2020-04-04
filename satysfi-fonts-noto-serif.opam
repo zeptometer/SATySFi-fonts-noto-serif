@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "satysfi-fonts-noto-serif"
-version: "2.000+satysfi0.0.4"
+version: "2.001ver1+satysfi0.0.4"
 synopsis: "SATySFi Font Package for Noto Serif fonts"
 description: """
 SATySFi font package for Noto Serif fonts.
@@ -14,14 +14,14 @@ homepage: "https://github.com/zeptometer/SATySFi-fonts-noto-serif"
 bug-reports: "https://github.com/zeptometer/SATySFi-fonts-noto-serif/issues"
 dev-repo: "git+https://github.com/zeptometer/SATySFi-fonts-noto-serif.git"
 extra-source "noto-serif.zip" {
-  archive: "https://noto-website-2.storage.googleapis.com/pkgs/NotoSerif-hinted.zip"
+  archive: "https://github.com/zeptometer/noto-fonts/releases/download/v2.7-NotoSlimVF/NotoSerif.zip"
   checksum: [
-    "sha256=64e4c71c5b0d09f41c4093c1f673d92350eb8789f041d1f5e948ccfbdbe0bafa"
-    "sha512=bc91cc1e6fe886a754f7b01e8405e2455b8c26d52f71a81c78d08550c857785a7f9f030116846fdccdfc017358876ba88ee8f66c452a24cf75357519b8a5251a"
+    "sha256=1e99f814d6400072a47a535416b0820ac99fc568fd1dd35d12c2c5311c6229ac"
+    "sha512=a262f5e8226e09e094d376e0e4bd0854ddba4f4c223b10145ecde320aa026d4536b745268ba710425e94af0d6873467f8576d133dfe0f1331181ab23e9ef15b0"
   ]
 }
 depends: [
-  "satysfi" {>= "0.0.3+dev2019.02.12" & < "0.0.5"}
+  "satysfi" {>= "0.0.4" & < "0.0.5"}
   "satyrographos" {>= "0.0.2" & < "0.0.3"}
 ]
 build: [
